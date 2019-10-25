@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Interns Clock - Sistema de apontamento de horas!"
       redirect_to @user
       # Handle a successful save.
